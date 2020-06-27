@@ -1,6 +1,7 @@
 spring:
   datasource:
       driver-class-name: com.mysql.cj.jdbc.Driver
+      #url: jdbc:h2:~/data/clothes
       url: jdbc:mysql://localhost:3306/clothes_mall?serverTimezone=UTC&characterEncoding=UTF-8
       username: root
       password: root

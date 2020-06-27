@@ -1,6 +1,6 @@
-package com.shop.clothesmall.doamin.Products.dto;
+package com.shop.clothesmall.domain.Products.dto;
 
-import com.shop.clothesmall.doamin.Products.Product;
+import com.shop.clothesmall.domain.Products.ProductCategoryDetail;
 import lombok.*;
 
 @Getter
@@ -17,6 +17,6 @@ public class ProductCreateRequestDto {
     private String productInformation;
     private String status;
 
-    private void toEntity() {
-    }
+    private ProductCategoryDetail productCategoryDetailId;
+
 }

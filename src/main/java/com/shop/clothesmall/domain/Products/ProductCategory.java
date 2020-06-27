@@ -1,37 +1,32 @@
-package com.shop.clothesmall.doamin.Admin;
+package com.shop.clothesmall.domain.Products;
 
-import lombok.Getter;
+import com.shop.clothesmall.domain.BaseTimeEntity;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
+@Builder
 @Getter
-@Table(name = "admin")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Table(name = "product_category")
 @Entity
-public class Admin {
+public class ProductCategory extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String aid;
-
-    private String password;
-
     private String name;
 
-    private String email;
-
-    private String phoneNumber;
+    private Integer priority;
 
     private Integer isDeleted;
 
     private LocalDateTime createdDate;
 
     private LocalDateTime modifiedDate;
-
-    private LocalDateTime lastLoginDate;
-
-    private String status;
 
 }

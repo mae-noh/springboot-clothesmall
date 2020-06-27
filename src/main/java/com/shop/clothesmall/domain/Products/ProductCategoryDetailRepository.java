@@ -1,4 +1,4 @@
-package com.shop.clothesmall.doamin.Products;
+package com.shop.clothesmall.domain.Products;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

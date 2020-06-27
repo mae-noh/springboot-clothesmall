@@ -1,14 +1,21 @@
-package com.shop.clothesmall.doamin.Products;
+package com.shop.clothesmall.domain.Products;
 
-import lombok.Getter;
+import com.shop.clothesmall.domain.BaseTimeEntity;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
+import static javax.persistence.FetchType.LAZY;
+
 @Getter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+@Data
 @Table(name = "product_category_detail")
 @Entity
-public class ProductCategoryDetail {
+public class ProductCategoryDetail extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,7 +31,7 @@ public class ProductCategoryDetail {
 
     private LocalDateTime modifiedDate;
 
-    @ManyToOne
+    @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "product_category_id")
     private ProductCategory productCategoryId;
 

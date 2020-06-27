@@ -1,4 +1,4 @@
-package com.shop.clothesmall.doamin.Admin;
+package com.shop.clothesmall.domain.Admin;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
