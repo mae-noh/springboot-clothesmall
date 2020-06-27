@@ -33,6 +33,6 @@ public class ProductCategoryDetail extends BaseTimeEntity {
 
     @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "product_category_id")
-    private ProductCategory productCategoryId;
+    private ProductCategory productCategory;
 
 }

@@ -17,6 +17,7 @@ public class ProductCreateRequestDto {
     private String productInformation;
     private String status;
 
-    private ProductCategoryDetail productCategoryDetailId;
+    private Long categoryDetail;
+    private Long category;
 
 }

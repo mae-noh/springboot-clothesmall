@@ -40,11 +40,11 @@ public class Product extends BaseTimeEntity {
 
     @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "product_category_detail_id")
-    private ProductCategoryDetail productCategoryDetailId;
+    private ProductCategoryDetail productCategoryDetail;
 
     @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "admin_id")
-    private Admin adminId;
+    private Admin admin;
 
 //    public static Product createProduct(ProductCategoryDetail productCategoryDetailId, Admin adminId) {
 //        Product product = new Product();
