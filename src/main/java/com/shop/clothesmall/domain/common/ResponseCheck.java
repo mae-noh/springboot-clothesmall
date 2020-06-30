@@ -1,6 +1,6 @@
 package com.shop.clothesmall.domain.common;
 
-import com.shop.clothesmall.domain.Products.dto.ProductCreateResponseDto;
+import com.shop.clothesmall.domain.Products.dto.ProductResponseDto;
 import lombok.*;
 
 @Builder
@@ -13,6 +13,6 @@ public class ResponseCheck {
     private int code;
     private String message;
 
-    private ProductCreateResponseDto data;
+    private ProductResponseDto data;
 
 }

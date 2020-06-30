@@ -1,51 +1,70 @@
 package com.shop.clothesmall.domain.Products;
 
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-import com.fasterxml.jackson.databind.JsonDeserializer;
-import com.fasterxml.jackson.databind.util.Converter;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
-@ActiveProfiles("local")
 public class ProductCategoryDetailRepositoryTest {
 
-    @Autowired(required = true)
-    ProductCategoryDetailRepository productCategoryDetailRepository;
+    @Autowired
+    private ProductCategoryRepository productCategoryRepository;
+
+    @Autowired
+    private ProductCategoryDetailRepository productCategoryDetailRepository;
 
     @Test
-    public void findByIdCheck(){
-
+    public void save_category(){
         //given
-        ProductCategory productCategory = ProductCategory.builder()
-                .id(1L)
-                .name("상의")
-                .priority(1)
-                .isDeleted(1)
-                .build();
+        ProductCategory productCategory = productCategoryRepository.findById(1L).orElseThrow(() -> new IllegalArgumentException("no item"));
 
+
+        String name = "긴팔";
         ProductCategoryDetail productCategoryDetail = ProductCategoryDetail.builder()
                 .id(1L)
-                .name("긴팔")
+                .name(name)
                 .priority(1)
-                .isDeleted(1)
                 .productCategory(productCategory)
                 .build();
 
         // when
-        ProductCategoryDetail productCategoryDetail1 = productCategoryDetailRepository.findById(1L).orElseGet(ProductCategoryDetail::new);
+        productCategoryDetailRepository.save(productCategoryDetail);
+
+        ProductCategoryDetail saveProductCategoryDetail = productCategoryDetailRepository.findById(1L).orElseThrow(() -> new IllegalArgumentException("not found exception"));
 
         // then
-        assertThat(productCategoryDetail.getId()).isEqualTo(productCategoryDetail1.getId());
+
+        assertThat(saveProductCategoryDetail.getName()).isEqualTo(name);
+
     }
+
+//    @Test
+//    public void findByIdCheck(){
+//
+//        //given
+//        ProductCategory productCategory = ProductCategory.builder()
+//                .id(1L)
+//                .name("상의")
+//                .priority(1)
+//                .build();
+//
+//        ProductCategoryDetail productCategoryDetail = ProductCategoryDetail.builder()
+//                .id(1L)
+//                .name("긴팔")
+//                .priority(1)
+//                .productCategory(productCategory)
+//                .build();
+//
+//        // when
+//        ProductCategoryDetail productCategoryDetail1 = productCategoryDetailRepository.findById(1L).orElseGet(ProductCategoryDetail::new);
+//
+//        // then
+//        assertThat(productCategoryDetail.getId()).isEqualTo(productCategoryDetail1.getId());
+//    }
 
 }

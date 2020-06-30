@@ -10,10 +10,8 @@ import java.time.LocalDateTime;
 import static javax.persistence.FetchType.LAZY;
 
 @Builder
-@AllArgsConstructor
 @NoArgsConstructor
 @Getter
-@Data
 @Table(name = "product")
 @Entity
 public class Product extends BaseTimeEntity {
@@ -29,10 +27,6 @@ public class Product extends BaseTimeEntity {
     private Integer sellingPrice;
 
     private String productInformation;
-
-    private LocalDateTime createdDate;
-
-    private LocalDateTime modifiedDate;
 
     private String status;
 

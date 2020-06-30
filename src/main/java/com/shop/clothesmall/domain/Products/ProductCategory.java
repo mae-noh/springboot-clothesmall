@@ -6,11 +6,9 @@ import lombok.*;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
-@Builder
 @Getter
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
 @Table(name = "product_category")
 @Entity
 public class ProductCategory extends BaseTimeEntity {
@@ -19,14 +17,17 @@ public class ProductCategory extends BaseTimeEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column
     private String name;
 
-    private Integer priority;
+    private int priority;
 
-    private Integer isDeleted;
+    @Column(nullable = true)
+    private int isDeleted;
 
-    private LocalDateTime createdDate;
-
-    private LocalDateTime modifiedDate;
-
+    @Builder
+    public ProductCategory(String name, int priority){
+        this.name = name;
+        this.priority = priority;
+    }
 }

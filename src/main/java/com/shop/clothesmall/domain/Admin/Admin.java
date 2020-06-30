@@ -7,10 +7,8 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Getter
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
 @Data
+@NoArgsConstructor
 @Table(name = "admin")
 @Entity
 public class Admin extends BaseTimeEntity {
@@ -29,14 +27,22 @@ public class Admin extends BaseTimeEntity {
 
     private String phoneNumber;
 
-    private Integer isDeleted;
+    @Column(nullable = true)
+    private int isDeleted;
 
-    private LocalDateTime createdDate;
-
-    private LocalDateTime modifiedDate;
-
+    @Column(nullable = true)
     private LocalDateTime lastLoginDate;
 
     private String status;
+
+    @Builder
+    public Admin(String aid, String name, String email, String password, String phoneNumber, String status) {
+        this.aid = aid;
+        this.name = name;
+        this.password = password;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.status = status;
+    }
 
 }
