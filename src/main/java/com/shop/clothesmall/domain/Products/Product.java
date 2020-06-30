@@ -9,7 +9,6 @@ import java.time.LocalDateTime;
 
 import static javax.persistence.FetchType.LAZY;
 
-@Builder
 @NoArgsConstructor
 @Getter
 @Table(name = "product")
@@ -22,15 +21,15 @@ public class Product extends BaseTimeEntity {
 
     private String name;
 
-    private Integer costPrice;
+    private int costPrice;
 
-    private Integer sellingPrice;
+    private int sellingPrice;
 
     private String productInformation;
 
     private String status;
 
-    private Integer isDeleted;
+    private int isDeleted;
 
     @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "product_category_detail_id")
@@ -40,13 +39,15 @@ public class Product extends BaseTimeEntity {
     @JoinColumn(name = "admin_id")
     private Admin admin;
 
-//    public static Product createProduct(ProductCategoryDetail productCategoryDetailId, Admin adminId) {
-//        Product product = new Product();
-//        product.setProductCategoryDetailId(productCategoryDetailId);
-//        product.setAdminId(adminId);
-//        product.setCreatedDate(LocalDateTime.now());
-//        product.setModifiedDate(LocalDateTime.now());
-//        return product;
-//    }
+    @Builder
+    public Product(String name, int costPrice, int sellingPrice, String productInformation, String status, ProductCategoryDetail productCategoryDetail, Admin admin){
+        this.name = name;
+        this.costPrice = costPrice;
+        this.sellingPrice = sellingPrice;
+        this.productInformation = productInformation;
+        this.status = status;
+        this.admin = admin;
+        this.productCategoryDetail = productCategoryDetail;
+    }
 
 }

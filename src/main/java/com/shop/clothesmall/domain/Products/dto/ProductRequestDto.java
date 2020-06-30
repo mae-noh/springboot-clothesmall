@@ -1,5 +1,7 @@
 package com.shop.clothesmall.domain.Products.dto;
 
+import com.shop.clothesmall.domain.Admin.Admin;
+import com.shop.clothesmall.domain.Products.Product;
 import com.shop.clothesmall.domain.Products.ProductCategoryDetail;
 import lombok.*;
 
@@ -12,12 +14,23 @@ public class ProductRequestDto {
 
     private Long id;
     private String name;
-    private Integer costPrice;
-    private Integer sellingPrice;
+    private int costPrice;
+    private int sellingPrice;
     private String productInformation;
     private String status;
 
-    private Long categoryDetail;
-    private Long category;
+    private Admin admin;
+    private ProductCategoryDetail productCategoryDetail;
 
+    public Product toEntity() {
+        return Product.builder()
+                .name(name)
+                .productInformation(productInformation)
+                .costPrice(costPrice)
+                .sellingPrice(sellingPrice)
+                .status(status)
+                .admin(admin)
+                .productCategoryDetail(productCategoryDetail)
+                .build();
+    }
 }

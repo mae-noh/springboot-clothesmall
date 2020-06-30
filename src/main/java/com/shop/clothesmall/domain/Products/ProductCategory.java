@@ -7,7 +7,6 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Getter
-@Data
 @NoArgsConstructor
 @Table(name = "product_category")
 @Entity

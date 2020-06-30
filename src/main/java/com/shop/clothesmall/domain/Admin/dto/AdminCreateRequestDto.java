@@ -4,6 +4,8 @@ import com.shop.clothesmall.domain.Admin.Admin;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
+
 @Getter
 @NoArgsConstructor
 public class AdminCreateRequestDto {
@@ -19,6 +21,8 @@ public class AdminCreateRequestDto {
     private String phoneNumber;
 
     private String status;
+
+    private LocalDateTime lastLoginDate;
 
     public Admin toEntity(){
         return Admin.builder()
