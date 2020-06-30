@@ -1,4 +1,4 @@
-package com.shop.clothesmall.domain.Products.dto;
+package com.shop.clothesmall.domain.Products.dto.productCategoryDetails;
 
 import com.shop.clothesmall.domain.Products.ProductCategory;
 import com.shop.clothesmall.domain.Products.ProductCategoryDetail;

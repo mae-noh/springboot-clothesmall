@@ -1,4 +1,4 @@
-package com.shop.clothesmall.domain.Products.dto;
+package com.shop.clothesmall.domain.Products.dto.productDtos;
 
 import lombok.*;
 

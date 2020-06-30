@@ -1,4 +1,4 @@
-package com.shop.clothesmall.domain.Products.dto;
+package com.shop.clothesmall.domain.Products.dto.productCategoryDtos;
 
 import com.shop.clothesmall.domain.Products.ProductCategory;
 import lombok.Getter;

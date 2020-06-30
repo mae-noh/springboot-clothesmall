@@ -50,4 +50,14 @@ public class Product extends BaseTimeEntity {
         this.productCategoryDetail = productCategoryDetail;
     }
 
+    public void update(String name, int costPrice, int sellingPrice, String productInformation, String status, Admin admin, ProductCategoryDetail productCategoryDetail){
+        this.name = name;
+        this.costPrice = costPrice;
+        this.sellingPrice = sellingPrice;
+        this.productInformation = productInformation;
+        this.status = status;
+        this.admin = admin;
+        this.productCategoryDetail = productCategoryDetail;
+    }
+
 }

@@ -1,6 +1,6 @@
 package com.shop.clothesmall.domain.common;
 
-import com.shop.clothesmall.domain.Products.dto.ProductResponseDto;
+import com.shop.clothesmall.domain.Products.dto.productDtos.ProductResponseDto;
 import lombok.*;
 
 @Builder

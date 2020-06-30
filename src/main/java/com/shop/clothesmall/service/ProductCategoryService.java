@@ -1,7 +1,7 @@
 package com.shop.clothesmall.service;
 
 import com.shop.clothesmall.domain.Products.ProductCategoryRepository;
-import com.shop.clothesmall.domain.Products.dto.ProductCategoryRequestDto;
+import com.shop.clothesmall.domain.Products.dto.productCategoryDtos.ProductCategoryRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

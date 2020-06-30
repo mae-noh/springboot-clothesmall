@@ -1,7 +1,8 @@
 package com.shop.clothesmall.service;
 
+import com.shop.clothesmall.domain.Products.Product;
 import com.shop.clothesmall.domain.Products.ProductRepository;
-import com.shop.clothesmall.domain.Products.dto.ProductRequestDto;
+import com.shop.clothesmall.domain.Products.dto.productDtos.ProductRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -15,4 +16,8 @@ public class ProductService {
         productRepository.save(productRequestDto.toEntity());
     }
 
+    public void update(Long id, ProductRequestDto productRequestDto) {
+        Product product = productRepository.findById(id).orElseThrow(()-> new IllegalArgumentException("사용자가 존재하지 않습니다."));
+
+    }
 }
