@@ -2,13 +2,15 @@ package com.shop.clothesmall.controller;
 
 import com.shop.clothesmall.domain.Products.dto.productCategoryDetails.ProductCategoryDetailRequestDto;
 import com.shop.clothesmall.domain.Products.dto.productCategoryDtos.ProductCategoryRequestDto;
+import com.shop.clothesmall.domain.Products.dto.productDtos.PageResponseDto;
 import com.shop.clothesmall.domain.Products.dto.productDtos.ProductCreateRequestDto;
 import com.shop.clothesmall.domain.Products.dto.productDtos.ProductUpdateRequestDto;
 import com.shop.clothesmall.service.ProductCategoryDetailService;
 import com.shop.clothesmall.service.ProductCategoryService;
 import com.shop.clothesmall.service.ProductService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.*;
 
 @RequiredArgsConstructor
@@ -50,11 +52,11 @@ public class ProductApiController {
         return "OK";
     }
 
-//    //list
-//    @GetMapping("/api/products")
-//    public String listProduct(@RequestBody PageRequest pageRequest){
-//
-//    }
+    //list
+    @GetMapping("/api/products")
+    public PageResponseDto listProduct(@PageableDefault(size = 5, page = 0) Pageable pageable){
+        return productService.list(pageable);
+    }
 
 }
 
