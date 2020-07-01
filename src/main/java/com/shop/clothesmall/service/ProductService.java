@@ -78,6 +78,11 @@ public class ProductService {
                     .productCategoryName(product.getProductCategoryDetail().getProductCategory().getName())
                     .productCategoryDetailName(product.getProductCategoryDetail().getName())
                     .build();
-
         }
+
+        public void delete(Long id){
+            Product product = productRepository.findById(id).orElseThrow(()->new IllegalArgumentException("해당 게시글이 존재하지 않는다. id : " + id));
+            productRepository.delete(product);
+        }
+
 }

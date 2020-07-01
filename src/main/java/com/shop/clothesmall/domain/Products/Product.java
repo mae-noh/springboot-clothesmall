@@ -2,10 +2,12 @@ package com.shop.clothesmall.domain.Products;
 
 import com.shop.clothesmall.domain.Admin.Admin;
 import com.shop.clothesmall.domain.BaseTimeEntity;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
 
 import static javax.persistence.FetchType.LAZY;
 
