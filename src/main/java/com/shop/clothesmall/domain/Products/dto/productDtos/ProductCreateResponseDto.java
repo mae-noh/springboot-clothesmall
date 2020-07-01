@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class ProductResponseDto {
+public class ProductCreateResponseDto {
 
     private Long id;
     private String name;

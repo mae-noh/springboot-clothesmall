@@ -10,7 +10,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class ProductRequestDto {
+public class ProductCreateRequestDto {
 
     private Long id;
     private String name;
