@@ -18,5 +18,6 @@ public class PageResponseDto {
     private Long totalElements;
     private int curPage;
     private int curElements;
+    private List<ProductListResponseDto> productListResponseDtoList;
 
 }

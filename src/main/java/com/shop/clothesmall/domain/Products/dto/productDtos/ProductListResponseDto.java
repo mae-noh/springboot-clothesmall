@@ -1,7 +1,6 @@
 package com.shop.clothesmall.domain.Products.dto.productDtos;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.shop.clothesmall.domain.Products.Product;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;

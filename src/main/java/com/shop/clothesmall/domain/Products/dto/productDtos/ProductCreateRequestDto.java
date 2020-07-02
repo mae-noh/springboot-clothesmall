@@ -22,7 +22,7 @@ public class ProductCreateRequestDto {
     private Admin admin;
     private ProductCategoryDetail productCategoryDetail;
 
-    public Product toEntity() {
+    public Product toEntity(Admin admin, ProductCategoryDetail productCategoryDetail) {
         return Product.builder()
                 .name(name)
                 .productInformation(productInformation)
