@@ -2,12 +2,17 @@ package com.shop.clothesmall.domain.Products;
 
 import com.shop.clothesmall.domain.Admin.Admin;
 import com.shop.clothesmall.domain.BaseTimeEntity;
+import com.shop.clothesmall.domain.Products.dto.productDtos.ProductCreateResponseDto;
+import com.shop.clothesmall.domain.Products.dto.productDtos.ProductListResponseDto;
+import com.shop.clothesmall.domain.Products.dto.productDtos.ProductUpdateResponseDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+
+import java.time.LocalDateTime;
 
 import static javax.persistence.FetchType.LAZY;
 
@@ -44,16 +49,23 @@ public class Product extends BaseTimeEntity {
     @JoinColumn(name = "admin_id")
     private Admin admin;
 
-//    @Builder
-//    public Product(String name, int costPrice, int sellingPrice, String productInformation, String status, ProductCategoryDetail productCategoryDetail, Admin admin){
-//        this.name = name;
-//        this.costPrice = costPrice;
-//        this.sellingPrice = sellingPrice;
-//        this.productInformation = productInformation;
-//        this.status = status;
-//        this.admin = admin;
-//        this.productCategoryDetail = productCategoryDetail;
-//    }
+    public ProductCreateResponseDto toCreateProductResponseDto(){
+        return ProductCreateResponseDto.builder()
+                .id(id)
+                .name(name)
+                .costPrice(costPrice)
+                .sellingPrice(sellingPrice)
+                .productInformation(productInformation)
+                .categoryName(productCategoryDetail.getProductCategory().getName())
+                .categoryDetailName(productCategoryDetail.getName())
+                .adminId(admin.getId())
+                .adminName(admin.getName())
+                .isDeleted(isDeleted)
+                .status(status)
+                .modifiedDate(getModifiedDate())
+                .createdDate(getCreatedDate())
+                .build();
+    }
 
     public void updateProduct(String name, int costPrice, int sellingPrice, String productInformation, String status, Admin admin, ProductCategoryDetail productCategoryDetail){
         this.name = name;
@@ -63,6 +75,42 @@ public class Product extends BaseTimeEntity {
         this.status = status;
         this.admin = admin;
         this.productCategoryDetail = productCategoryDetail;
+    }
+
+    public ProductUpdateResponseDto toUpdateProductResponseDto(){
+        return ProductUpdateResponseDto.builder()
+                .id(id)
+                .name(name)
+                .costPrice(costPrice)
+                .sellingPrice(sellingPrice)
+                .productInformation(productInformation)
+                .status(status)
+                .isDeleted(isDeleted)
+                .categoryName(productCategoryDetail.getProductCategory().getName())
+                .categoryDetailName(productCategoryDetail.getName())
+                .adminId(admin.getId())
+                .adminName(admin.getName())
+                .modifiedDate(getModifiedDate())
+                .createdDate(getCreatedDate())
+                .build();
+    }
+
+    public ProductListResponseDto toListProductResponseDto(){
+        return ProductListResponseDto.builder()
+                .id(id)
+                .name(name)
+                .costPrice(costPrice)
+                .sellingPrice(sellingPrice)
+                .productInformation(productInformation)
+                .status(status)
+                .isDeleted(isDeleted)
+                .categoryName(productCategoryDetail.getProductCategory().getName())
+                .categoryDetailName(productCategoryDetail.getName())
+                .adminId(admin.getId())
+                .adminName(admin.getName())
+                .modifiedDate(getModifiedDate())
+                .createdDate(getCreatedDate())
+                .build();
     }
 
 }
